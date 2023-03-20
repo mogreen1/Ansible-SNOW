@@ -1,6 +1,6 @@
 ---
 - name: Play 1 - Test Grabbing SNOW Data
-  hosts: all
+  hosts: localhost
   gather_facts: false
   connection: local
   tasks:
