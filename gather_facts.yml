@@ -1,0 +1,13 @@
+---
+- name: Play 1 - Gather facts
+  hosts: "{{ hostname }}"
+  gather_facts: false
+  tasks:
+
+  - name: Run setup module
+    setup:
+    register: factinfo
+
+  - name: Print facts
+    debug:
+      var: factinfo
