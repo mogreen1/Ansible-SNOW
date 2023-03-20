@@ -8,6 +8,7 @@
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
       state: "{{ status }}"
+      serial_number: 332211
       name: "{{ recordname }}"
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
