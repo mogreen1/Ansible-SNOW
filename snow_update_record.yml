@@ -1,0 +1,16 @@
+---
+- name: Play 1 - Modiying SNOW Record 
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+
+  - name: Update SNOW CMDB
+    servicenow.itsm.configuration_item:
+      state: "{{ status }}"
+      name: "{{ recordname }}"
+      sys_class_name: cmdb_ci_server
+      sys_id: "{{ system_id }}"
+      other:
+        test: This is a test
+      delegate_to: localhost
