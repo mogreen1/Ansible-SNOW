@@ -1,0 +1,13 @@
+---
+- name: Play 1 - Test Grabbing SNOW Data
+  hosts: fd1.shadowman.dev
+  gather_facts: false
+  tasks:
+
+  - name: Retrieve all configuration items
+    servicenow.itsm.configuration_item_info:
+    register: result
+
+  - name: Print Results
+    debug:
+      var: result
