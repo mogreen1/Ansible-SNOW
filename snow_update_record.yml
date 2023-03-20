@@ -13,4 +13,4 @@
       sys_id: "{{ system_id }}"
       other:
         test: This is a test
-      delegate_to: localhost
+    delegate_to: localhost
