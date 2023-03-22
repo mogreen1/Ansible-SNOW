@@ -33,7 +33,7 @@
       attachments:
         - path: "/tmp/{{ item }}.txt"
       other:
-        Default_Gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
+        #Default_Gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
         OS_Version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
         CPU_count: "{{ ansible_facts['processor_nproc'] }}"
     delegate_to: localhost
