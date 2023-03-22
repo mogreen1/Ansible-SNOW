@@ -1,14 +1,14 @@
 ---
 - name: Play 1 - Modiying SNOW Record 
   hosts: localhost
-  gather_facts: false
+  gather_facts: true
   connection: local
   tasks:
 
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
       state: "{{ status }}"
-      serial_number: 332211
+      serial_number: "{{ ansible_facts['bios_date'] }}"
       name: "{{ recordname }}"
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
