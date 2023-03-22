@@ -27,7 +27,7 @@
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
       attachments:
-        - path: /tmp/etc/sudoers
+        - path: /tmp/sudoers
       other:
         model_number: BL465C G7
     delegate_to: localhost
