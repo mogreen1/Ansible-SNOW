@@ -13,7 +13,7 @@
     run_once: true
     register: myfile
     
-   - name: 
-     debug:
-       var: myfile
+  - name: 
+    debug:
+      var: myfile
 
