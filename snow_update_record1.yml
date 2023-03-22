@@ -26,16 +26,16 @@
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
       state: "{{ status }}"
-      #OS_Version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
+      #
       name: "{{ recordname }}"
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
       attachments:
         - path: "/tmp/{{ item }}.txt"
       other:
-        model_number: BL465C G7
-        cost: " {{ ansible_facts['distribution_version'] }} "
-        os_domain: testy
+        Default_Gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
+        OS_Version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
+        CPU_count: "{{ ansible_facts['processor_nproc'] }}"
     delegate_to: localhost
     loop:
       - sudoers
