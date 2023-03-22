@@ -35,6 +35,7 @@
       other:
         model_number: BL465C G7
         cost: " {{ ansible_facts['distribution_version'] }} "
+        os_domain: testy
     delegate_to: localhost
     loop:
       - sudoers
