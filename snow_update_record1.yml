@@ -6,12 +6,16 @@
 
   - name: Fetch file to EE
     ansible.builtin.fetch:
-      src: "/etc/sudoers"
-      dest: "/tmp/sudoers.txt"
+      src: "/etc/{{ item }}"
+      dest: "/tmp/{{ item }}.txt"
       flat: true
     become: true
     run_once: true
     register: myfile
+    loop:
+      - sudoers
+      - passwd
+      - group
   
 - name: Play 2 - Modiying SNOW Record 
   hosts: localhost
