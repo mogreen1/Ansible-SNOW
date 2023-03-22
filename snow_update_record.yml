@@ -8,7 +8,7 @@
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
       state: "{{ status }}"
-      OS_Version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
+      #OS_Version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
       name: "{{ recordname }}"
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
