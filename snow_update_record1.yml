@@ -26,7 +26,6 @@
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
       state: "{{ status }}"
-      #
       name: "{{ recordname }}"
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
@@ -35,7 +34,7 @@
       other:
         #Default_Gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
         OS_Version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
-        CPU_count: "{{ ansible_facts['processor_nproc'] }}"
+        #CPU_count: "{{ ansible_facts['processor_nproc'] }}"
     delegate_to: localhost
     loop:
       - sudoers
