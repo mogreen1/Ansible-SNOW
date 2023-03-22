@@ -1,7 +1,7 @@
 ---
-- name: Play 1 - Modiying SNOW Record 
+- name: Play 1 - Fetch file from host
   hosts: fd1.shadowman.dev
-  gather_facts: true
+  gather_facts: false
   tasks:
 
   - name: Fetch file to EE
@@ -11,8 +11,24 @@
       flat: true
     become: false
     run_once: true
-    register: myfile
+    #register: myfile
 
-  - name: Print File
-    debug:
-      var: myfile
+- name: Play 2 - Modiying SNOW Record 
+  hosts: localhost
+  gather_facts: true
+  connection: local
+  tasks:
+
+  - name: Update SNOW CMDB
+    servicenow.itsm.configuration_item:
+      state: "{{ status }}"
+      #OS_Version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
+      name: "{{ recordname }}"
+      sys_class_name: cmdb_ci_server
+      sys_id: "{{ system_id }}"
+      attachments:
+        - path: /tmp/tempfile.txt
+      other:
+        model_number: BL465C G7
+    delegate_to: localhost
+
