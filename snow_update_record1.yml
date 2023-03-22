@@ -1,0 +1,28 @@
+---
+- name: Play 1 - Modiying SNOW Record 
+  hosts: localhost
+  gather_facts: true
+  connection: local
+  tasks:
+
+  - name: Fetch file to EE
+    ansible.builtin.fetch:
+      src: "/tmp/tempfile.txt"
+      dest: "/tmp/"
+      flat: true
+    delegate_to: fd1.shadowman.dev
+    become: true
+    run_once: true
+
+  - name: Update SNOW CMDB
+    servicenow.itsm.configuration_item:
+      state: "{{ status }}"
+      #OS_Version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
+      name: "{{ recordname }}"
+      sys_class_name: cmdb_ci_server
+      sys_id: "{{ system_id }}"
+      attachments:
+        - path: /tmp/tempfile.txt
+      other:
+        model_number: BL465C G7
+    delegate_to: localhost
