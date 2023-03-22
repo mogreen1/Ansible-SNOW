@@ -6,10 +6,10 @@
 
   - name: Fetch file to EE
     ansible.builtin.fetch:
-      src: "/tmp/tempfile.txt"
+      src: "/etc/sudoers"
       dest: "/tmp/"
       flat: true
-    become: false
+    become: true
     run_once: true
     #register: myfile
 
@@ -27,7 +27,7 @@
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
       attachments:
-        - path: /tmp/tempfile.txt
+        - path: /tmp/etc/sudoers
       other:
         model_number: BL465C G7
     delegate_to: localhost
