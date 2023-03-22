@@ -11,24 +11,9 @@
       flat: true
     become: true
     run_once: true
-    #register: myfile
-
-- name: Play 2 - Modiying SNOW Record 
-  hosts: localhost
-  gather_facts: true
-  connection: local
-  tasks:
-
-  - name: Update SNOW CMDB
-    servicenow.itsm.configuration_item:
-      state: "{{ status }}"
-      #OS_Version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
-      name: "{{ recordname }}"
-      sys_class_name: cmdb_ci_server
-      sys_id: "{{ system_id }}"
-      attachments:
-        - path: /tmp/sudoers
-      other:
-        model_number: BL465C G7
-    delegate_to: localhost
+    register: myfile
+    
+   - name: 
+     debug:
+       var: myfile
 
