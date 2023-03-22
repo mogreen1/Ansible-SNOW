@@ -6,7 +6,7 @@
 
   - name: Fetch file to EE
     ansible.builtin.fetch:
-      src: "/etc/mdgtempfile.txt"
+      src: "/etc/mdgtempfile"
       dest: "/tmp/"
       flat: true
     become: true
@@ -27,7 +27,7 @@
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
       attachments:
-        - path: /tmp/mdgtempfile.txt
+        - path: /tmp/mdgtempfile
       other:
         model_number: BL465C G7
     delegate_to: localhost
