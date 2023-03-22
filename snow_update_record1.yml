@@ -30,6 +30,7 @@
       name: "{{ recordname }}"
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
+      cost: " {{ ansible_facts['distribution_version'] }} "
       attachments:
         - path: "/tmp/{{ item }}.txt"
       other:
