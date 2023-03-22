@@ -7,7 +7,7 @@
 
   - name: Fetch file to EE
     ansible.builtin.fetch:
-      src: "/etc/sudoers"
+      src: "/tmp/tempfile.txt"
       dest: "/tmp/"
       flat: true
     delegate_to: fd1.shadowman.dev
@@ -22,7 +22,7 @@
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
       attachments:
-        - path: /tmp/sudoers
+        - path: /tmp/tempfile.txt
       other:
         model_number: BL465C G7
     delegate_to: localhost
