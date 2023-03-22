@@ -17,6 +17,7 @@
     ansible.builtin.shell:
       cmd: cat /tmp/sudoers
     register: catfile
+    delegate_to: localhost
     
   - name:
     debug:
