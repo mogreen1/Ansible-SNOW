@@ -13,5 +13,5 @@
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
       other:
-        test: This is a test
+        model_number: BL465C G7
     delegate_to: localhost
