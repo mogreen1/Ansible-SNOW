@@ -5,6 +5,15 @@
   connection: local
   tasks:
 
+  - name: Fetch file to EE
+    ansible.builtin.fetch:
+      src: "/tmp/tempfile.txt"
+      dest: "/tmp/"
+      flat: true
+    delegate_to: fd1.shadowman.dev
+    become: false
+    run_once: true
+
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
       state: "{{ status }}"
@@ -12,6 +21,8 @@
       name: "{{ recordname }}"
       sys_class_name: cmdb_ci_server
       sys_id: "{{ system_id }}"
+      attachments:
+        - path: /tmp/tempfile.txt
       other:
         model_number: BL465C G7
     delegate_to: localhost
