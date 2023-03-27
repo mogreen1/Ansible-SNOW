@@ -26,9 +26,9 @@
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
       state: "{{ status }}"
-      name: "{{ recordname }}"
+      name: fd4.shadowman.dev
       sys_class_name: cmdb_ci_server
-      sys_id: "{{ system_id }}"
+      #sys_id: "{{ system_id }}"
       attachments:
         - path: "/tmp/{{ item }}.txt"
       other:
