@@ -7,7 +7,7 @@
   - name: Fetch file to EE
     ansible.builtin.fetch:
       src: "/etc/{{ item }}"
-      dest: "/tmp/{{ item }}.txt"
+      dest: "/tmp/{{ inventory_hostname }}/{{ item }}.txt"
       flat: true
     become: true
     #run_once: true
@@ -25,7 +25,7 @@
       sys_class_name: cmdb_ci_server
       #sys_id: "{{ system_id }}"
       attachments:
-        - path: "/tmp/{{ item }}.txt"
+        - path: "/tmp/{{ inventory_hostname }}/{{ item }}.txt"
       other:
         #default_gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
         os_version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
