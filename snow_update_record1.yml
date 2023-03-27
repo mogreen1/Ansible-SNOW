@@ -17,6 +17,10 @@
       - passwd
       - group
   
+  - name: Fetch file to EE
+    debug:
+      var: inventory_hostname
+
 - name: Play 2 - Modiying SNOW Record 
   hosts: localhost
   gather_facts: true
