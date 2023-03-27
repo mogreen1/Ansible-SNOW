@@ -10,7 +10,7 @@
       dest: "/tmp/{{ item }}.txt"
       flat: true
     become: true
-    run_once: true
+    #run_once: true
     register: myfile
     #delegate_to: "{{ inventory_hostname }}"
     loop:
