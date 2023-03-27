@@ -30,7 +30,7 @@
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
       state: "{{ status }}"
-      name: "{{ inventory_hostname }}"
+      name: fd1.shadowman.dev
       sys_class_name: cmdb_ci_server
       #sys_id: "{{ system_id }}"
       attachments:
