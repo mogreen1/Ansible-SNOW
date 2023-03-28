@@ -6,7 +6,7 @@
 
   - name: Sync with Gitrepo
     ansible.builtin.git:
-      repo: 'https://github.com/mogreen1/backup.git'
+      repo: 'git@github.com:mogreen1/backup.git'
       dest: /tmp/backup
       version: master
       #force: true
