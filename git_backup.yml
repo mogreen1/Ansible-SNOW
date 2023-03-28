@@ -21,7 +21,7 @@
       dest: /tmp/host_vars
       version: main
       accept_newhostkey: true
-      #key_file: /certs/id_ed25519
+      key_file: /certs/id_ed25519
     delegate_to: localhost
 
   - name: Update git repo with backup
