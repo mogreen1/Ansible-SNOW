@@ -20,7 +20,7 @@
       repo: 'https://github.com/mogreen1/backup.git'
       dest: "/tmp/"
       version: master
-      force: true
+      #force: true
       #clone: false
       accept_newhostkey: true
       key_file: /certs/id_ed25519
