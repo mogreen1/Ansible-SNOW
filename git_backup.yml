@@ -18,7 +18,7 @@
   - name: Sync with Gitrepo
     ansible.builtin.git:
       repo: 'https://github.com/mogreen1/backup.git'
-      dest: "/tmp/"
+      dest: /tmp/backup
       version: master
       #force: true
       #clone: false
@@ -29,5 +29,5 @@
   - name: Update git repo with backup
     ansible.builtin.shell: git add -A && git commit -m "Synching new backup to repo" && git push
     args:
-      chdir: "/tmp/"
+      chdir: /tmp/backup
     delegate_to: localhost
