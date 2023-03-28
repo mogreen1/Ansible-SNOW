@@ -26,7 +26,6 @@
 
   - name: Update git repo with backup
     ansible.builtin.shell: git add -A && git commit -m "Synching new backup to repo" && git push
-    force: true
     args:
-      chdir: /tmp/host_vars1
+      chdir: "/tmp/host_vars/{{ inventory_hostname }}"
     delegate_to: localhost
