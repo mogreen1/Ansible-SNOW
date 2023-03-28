@@ -20,7 +20,8 @@
       repo: 'https://github.com/mogreen1/backup.git'
       dest: "/tmp/{{ inventory_hostname }}"
       version: master
-      clone: false
+      force: true
+      #clone: false
       accept_newhostkey: true
       key_file: /certs/id_ed25519
     delegate_to: localhost
