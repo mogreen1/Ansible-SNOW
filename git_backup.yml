@@ -13,6 +13,7 @@
       #clone: false
       accept_newhostkey: true
       key_file: /certs/id_ed25519
+      run_once: true
     delegate_to: localhost
     
   - name: Fetch file to EE
@@ -30,4 +31,5 @@
     ansible.builtin.shell: git add -A && git commit -m "Synching new backup to repo" && git push
     args:
       chdir: /tmp/backup
+    run_once: true
     delegate_to: localhost
