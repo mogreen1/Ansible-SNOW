@@ -4,17 +4,6 @@
   gather_facts: false
   tasks:
 
-  - name: Fetch file to EE
-    ansible.builtin.fetch:
-      src: "/etc/{{ item }}"
-      dest: "/tmp/{{ inventory_hostname }}/{{ item }}.txt"
-      flat: true
-    become: true
-    loop:
-      - sudoers
-      - passwd
-      - group
-
   - name: Sync with Gitrepo
     ansible.builtin.git:
       repo: 'https://github.com/mogreen1/backup.git'
@@ -25,6 +14,17 @@
       accept_newhostkey: true
       key_file: /certs/id_ed25519
     delegate_to: localhost
+    
+  - name: Fetch file to EE
+    ansible.builtin.fetch:
+      src: "/etc/{{ item }}"
+      dest: "/tmp/{{ inventory_hostname }}/{{ item }}.txt"
+      flat: true
+    become: true
+    loop:
+      - sudoers
+      - passwd
+      - group
 
   - name: Update git repo with backup
     ansible.builtin.shell: git add -A && git commit -m "Synching new backup to repo" && git push
