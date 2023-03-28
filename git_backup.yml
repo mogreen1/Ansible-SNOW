@@ -20,7 +20,7 @@
       repo: 'git@github.com:mogreen1/backup.git'
       dest: /tmp/host_vars
       version: main
-      #accept_newhostkey: true
+      accept_newhostkey: true
       #key_file: /certs/id_ed25519
     delegate_to: localhost
 
