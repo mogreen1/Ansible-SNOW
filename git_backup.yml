@@ -18,7 +18,7 @@
   - name: Sync with Gitrepo
     ansible.builtin.git:
       repo: 'git@github.com:mogreen1/backup.git'
-      dest: /tmp/host_vars
+      dest: /tmp/host_vars1
       version: main
       accept_newhostkey: true
       key_file: /certs/id_ed25519
@@ -27,5 +27,5 @@
   - name: Update git repo with backup
     ansible.builtin.shell: git add -A && git commit -m "Synching new backup to repo" && git push
     args:
-      chdir: /tmp/host_vars
+      chdir: /tmp/host_vars1
     delegate_to: localhost
