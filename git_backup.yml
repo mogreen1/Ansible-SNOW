@@ -19,7 +19,7 @@
   - name: Fetch file to EE
     ansible.builtin.fetch:
       src: "/etc/{{ item }}"
-      dest: "/tmp/{{ inventory_hostname }}/{{ item }}.txt"
+      dest: "/tmp/backup/{{ inventory_hostname }}/{{ item }}.txt"
       flat: true
     become: true
     loop:
