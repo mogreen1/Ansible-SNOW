@@ -24,3 +24,4 @@
           password: "{{ palo_password }}"
         name: 'BadGuys'
         static_value: "{{ object_name }}"
+        state: 'merged'
