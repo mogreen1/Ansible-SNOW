@@ -1,12 +1,12 @@
 ---
-- name: Create Allow Rule
+- name: Modify Palo Alto Firewall
   hosts: localhost
   connection: local
   gather_facts: false
 
   tasks:
 
-    - name: Create Address Object
+    - name: Create address object
       paloaltonetworks.panos.panos_address_object:
         provider: 
           ip_address: "{{ palo_ip_address }}"
@@ -16,7 +16,7 @@
         address_type: 'ip-netmask'
         value: '{{ object_ip }}'
 
-    - name: Create object group
+    - name: Create or modify object group
       paloaltonetworks.panos.panos_address_group:
         provider: 
           ip_address: "{{ palo_ip_address }}"
