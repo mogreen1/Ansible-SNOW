@@ -2,11 +2,6 @@
 - name: Play 1 - Fetch file from host
   hosts: fd*.shadowman.dev
   gather_facts: true
-  
-  vars:
-    array:
-      user1: "{{ ansible_facts['kernel'] }}"
-      user2: "{{ ansible_facts['kernel'] }}"
      
   tasks:
 
@@ -23,6 +18,10 @@
       - sudoers
       - passwd
       - group
+      
+  - name: 
+    ansible.builtin.command: sudo -i grep -vE '#|^$|Defaults' /etc/sudoers
+    register: output
 
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
@@ -37,7 +36,7 @@
         os_version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
         cpu_count: "{{ ansible_facts['processor_nproc'] }}"
         default_gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
-        u_data_structure_1: "{{ array }}"
+        u_glide_list_2: "{{ output['stdout_lines'] }}"
          
     delegate_to: localhost
     loop:
