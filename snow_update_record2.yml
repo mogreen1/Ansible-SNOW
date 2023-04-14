@@ -5,8 +5,8 @@
   
   vars:
     array:
-      user1: {{ ansible_facts['kernel'] }}
-      user2: {{ ansible_facts['kernel'] }}
+      user1: "{{ ansible_facts['kernel'] }}"
+      user2: "{{ ansible_facts['kernel'] }}"
      
   tasks:
 
