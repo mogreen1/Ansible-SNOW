@@ -32,8 +32,8 @@
         cpu_count: "{{ ansible_facts['processor_nproc'] }}"
         default_gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
         u_glide_list_2: 
-          - "{{ ansible_facts['kernel'] }}"
-          - "{{ ansible_facts['kernel'] }}"
+          "{{ ansible_facts['kernel'] }}"
+          "{{ ansible_facts['kernel'] }}"
     delegate_to: localhost
     loop:
       - sudoers
