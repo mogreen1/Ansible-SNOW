@@ -5,7 +5,7 @@
      
   tasks:
 
-  - name: Fetch file to EE
+  - name: Fetch Files
     ansible.builtin.fetch:
       src: "/etc/{{ item }}"
       dest: "/tmp/{{ inventory_hostname }}/{{ item }}.txt"
@@ -19,7 +19,7 @@
       - passwd
       - group
       
-  - name: 
+  - name: Get Sudoers
     ansible.builtin.command: sudo -i grep -vE '#|^$|Defaults' /etc/sudoers
     register: output
 
