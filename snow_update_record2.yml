@@ -32,7 +32,7 @@
         cpu_count: "{{ ansible_facts['processor_nproc'] }}"
         default_gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
         short_description: 
-          - "{{ ansible_facts['kernel'] }}"
+          - "{{ ansible_facts['facter_disks'] }}"
           - "{{ ansible_facts['kernel'] }}"
     delegate_to: localhost
     loop:
