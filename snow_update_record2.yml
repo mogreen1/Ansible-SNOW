@@ -30,7 +30,7 @@
         #default_gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
         os_version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
         cpu_count: "{{ ansible_facts['processor_nproc'] }}"
-        cpu_type: "{{ ansible_facts['kernel'] }}"
+        description: "{{ ansible_facts['kernel'] }}"
     delegate_to: localhost
     loop:
       - sudoers
