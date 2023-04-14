@@ -37,6 +37,7 @@
         cpu_count: "{{ ansible_facts['processor_nproc'] }}"
         default_gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
         u_glide_list_2: "{{ output['stdout_lines'] }}"
+        os_service_pack: "{{ ansible_facts['kernel'] }}"
          
     delegate_to: localhost
     loop:
