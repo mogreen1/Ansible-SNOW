@@ -32,10 +32,11 @@
       attachments:
         - path: "/tmp/{{ inventory_hostname }}/{{ item }}.txt"
       other:
-        #default_gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
         os_version: "{{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }}"
         cpu_count: "{{ ansible_facts['processor_nproc'] }}"
         default_gateway: "{{ ansible_facts['default_ipv4']['gateway'] }}"
+        ip_address: "{{ ansible_facts['default_ipv4’][‘address’] }}"
+        host_name: "{{ ansible_facts[‘fqdn’] }}"
         u_glide_list_2: "{{ output['stdout_lines'] }}"
         os_service_pack: "{{ ansible_facts['kernel'] }}"
          
