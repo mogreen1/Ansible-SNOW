@@ -15,7 +15,7 @@
       key_file: /certs/id_ed25519
     run_once: true
     delegate_to: localhost
-    when: operating_system is match("RHEL.*")
+    when: ansible_distribution == 'RedHat'
     
   - name: Fetch file to EE
     ansible.builtin.fetch:
@@ -27,7 +27,7 @@
       - sudoers
       - passwd
       - group
-    when: operating_system is match("RHEL.*")
+    when: ansible_distribution == 'RedHat'
 
   - name: Update git repo with backup
     ansible.builtin.shell: git add -A && git commit -m "Synching new backup to repo" && git push
@@ -35,4 +35,4 @@
       chdir: /tmp/backup
     run_once: true
     delegate_to: localhost
-    when: operating_system is match("RHEL.*")
+    when: ansible_distribution == 'RedHat'
