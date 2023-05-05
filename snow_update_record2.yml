@@ -43,7 +43,6 @@
         os_service_pack: "{{ ansible_facts['kernel'] }}"
          
     delegate_to: localhost
-    ignore_errors: true
     loop:
       - sudoers
       - passwd
