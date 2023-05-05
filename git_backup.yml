@@ -1,12 +1,8 @@
 ---
 - name: Play 1 - Fetch file from host
   hosts: northside*.shadowman.dev
-  gather_facts: false
+  gather_facts: true
   tasks:
-
-  - name: Gather facts
-    setup:
-    when: ansible_distribution == 'RedHat'
     
   - name: Sync with Gitrepo
     ansible.builtin.git:
