@@ -18,10 +18,12 @@
       - sudoers
       - passwd
       - group
+    when: ansible_distribution == 'RedHat'
       
   - name: Get Sudoers
     ansible.builtin.command: sudo -i grep -vE '#|^$|Defaults' /etc/sudoers
     register: output
+    when: ansible_distribution == 'RedHat'
 
   - name: Update SNOW CMDB
     servicenow.itsm.configuration_item:
@@ -45,3 +47,4 @@
       - sudoers
       - passwd
       - group
+    when: ansible_distribution == 'RedHat'
