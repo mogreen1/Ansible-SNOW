@@ -34,5 +34,6 @@
     args:
       chdir: /tmp/backup
     run_once: true
+    ignore_errors: true
     delegate_to: localhost
     when: ansible_distribution == 'RedHat'
