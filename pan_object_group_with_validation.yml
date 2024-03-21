@@ -21,7 +21,7 @@
     - name: Get pre-existing object name
       set_fact: 
         pre_object_name: "{{ item.name }}"
-      with_items: "{{ all_pan_objects.gathered }}"
+      loop: "{{ all_pan_objects.gathered }}"
       when: item.value == object_ip
     
     - name: Display Error Message
