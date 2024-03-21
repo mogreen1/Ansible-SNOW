@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   vars:
-    pre_object_name: 0
+    pre_object_name: []
     provider:
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
@@ -20,14 +20,14 @@
 
     - name: Get pre-existing object name
       set_fact: 
-        pre_object_name: "{{ item.name }}"
+        pre_object_name: "{{ pre_object_name + [ item.name ] }}"
       loop: "{{ all_pan_objects.gathered }}"
       when: item.value == object_ip
     
     - name: Display Error Message
       debug:
         msg: "ERROR!!! The entry {{ object_ip }} already exists in the following object: {{ pre_object_name }}"
-      when: pre_object_name != 0
+      when: pre_object_name | length > 0
 
     - name: Create address object
       paloaltonetworks.panos.panos_address_object:
@@ -38,7 +38,7 @@
         name: '{{ object_name }}'
         address_type: 'ip-netmask'
         value: '{{ object_ip }}'
-      when: pre_object_name == 0
+      when: pre_object_name | length == 0
 
     - name: Create or modify object group
       paloaltonetworks.panos.panos_address_group:
@@ -49,4 +49,4 @@
         name: 'BadGuys'
         static_value: "{{ object_name }}"
         state: 'merged'
-      when: pre_object_name == 0
+      when: pre_object_name | length == 0
