@@ -1,5 +1,5 @@
 ---
-- name: Check to see if object already exists
+- name: Add new address object to PAN firewall
   hosts: localhost
   connection: local
   vars:
@@ -32,7 +32,7 @@
     - name: Create address object
       paloaltonetworks.panos.panos_address_object:
         provider: 
-          ip_address: "{{ item }}"
+          ip_address: "{{ palo_ip_address }}"
           username: "{{ palo_username }}"
           password: "{{ palo_password }}"
         name: '{{ object_name }}'
@@ -43,7 +43,7 @@
     - name: Create or modify object group
       paloaltonetworks.panos.panos_address_group:
         provider: 
-          ip_address: "{{ item }}"
+          ip_address: "{{ palo_ip_address }}"
           username: "{{ palo_username }}"
           password: "{{ palo_password }}"
         name: 'BadGuys'
