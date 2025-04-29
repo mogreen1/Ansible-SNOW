@@ -3,7 +3,7 @@
   servicenow.itsm.change_request:
     type: normal
     short_description: "{{ cr_description }}"
-    description: "Create new object with this name: {{ object_name }} and this IP: {{ object_ip }}"
+    description: "Create new object {{ object_name }} with IP {{ object_ip }}"
     priority: high
     risk: moderate
     impact: low
