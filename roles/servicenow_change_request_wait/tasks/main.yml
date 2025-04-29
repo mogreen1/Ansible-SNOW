@@ -3,7 +3,7 @@
   servicenow.itsm.change_request:
     type: normal
     short_description: "{{ cr_description }}"
-    description: "{{ owner | default('Users') }} is attempting to create firewall object {{ object_name }} with IP {{ object_ip }}"
+    description: "{{ owner | default('Users') }} is attempting to create firewall object"
     priority: high
     risk: moderate
     impact: low
