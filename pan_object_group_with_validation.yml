@@ -35,7 +35,7 @@
             per_host: no
             aggregate: no
 
-        - name: Display error if object already axists
+        - name: Display error if object already exists
           fail:
             msg: "ERROR!!! The entry [  {{ object_ip }}  ] already exists in the following address object(s): [  {{ pre_object_name.0 }}  ] "
           
