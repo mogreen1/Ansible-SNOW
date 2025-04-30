@@ -31,7 +31,7 @@
             data:
               work_notes: "ERROR!!! The entry [  {{ object_ip }}  ] already exists in the following address object(s): [  {{ pre_object_name.0 }}  ] "
               close_notes: "ERROR!!! The entry [  {{ object_ip }}  ] already exists in the following address object(s): [  {{ pre_object_name.0 }}  ] "
-              close_code: "Unsuccessful"
+              close_code: "unsuccessful"
             per_host: no
             aggregate: no
 
