@@ -17,6 +17,7 @@
         state: gathered
         gathered_filter: '*'
       register: all_pan_objects
+      no_log: yes
 
     - name: Get pre-existing object name
       set_fact: 
