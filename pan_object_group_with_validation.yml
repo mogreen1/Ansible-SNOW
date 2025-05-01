@@ -10,7 +10,23 @@
       password: "{{ palo_password }}"
 
   tasks:
+    
+    - name: Fail if IP is invalid
+      block: 
+        - name: Set stats to pass through workflow template
+          set_stats: 
+            data:
+              work_notes: "ERROR!!! [  {{ object_ip }}  ] is not a valid IP address!!!"
+              close_notes: "ERROR!!! [  {{ object_ip }}  ] is not a valid IP address!!!"
+              close_code: "unsuccessful"
+            per_host: no
+            aggregate: no
 
+        - name: Display error if object already exists
+          fail:
+            msg: "ERROR!!! [  {{ object_ip }}  ] is not a valid IP address!!!"
+      when: object_ip | ansible.utils.ipaddr == false  
+    
     - name:  Gather all objects
       paloaltonetworks.panos.panos_address_object:
         provider: '{{ provider }}'
