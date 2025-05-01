@@ -22,7 +22,7 @@
             per_host: no
             aggregate: no
 
-        - name: Display error if object already exists
+        - name: Display error if IP is invalid
           fail:
             msg: "ERROR!!! [  {{ object_ip }}  ] is not a valid IP address!!!"
       when: object_ip | ansible.utils.ipaddr == false  
