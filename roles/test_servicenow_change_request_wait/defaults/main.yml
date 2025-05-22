@@ -1,0 +1,3 @@
+---
+cr_description: Create new firewall object - {{ object_name | default('') }} with IP {{ object_ip | default('') }} 
+to_email: "{{ to_emails.split(',') }}"
