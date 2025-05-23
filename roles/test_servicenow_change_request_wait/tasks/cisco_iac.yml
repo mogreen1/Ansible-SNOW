@@ -1,4 +1,8 @@
 ---
+- name: Create variable
+  ansible.builtin.set_fact:
+    cr_description: SNMP and Syslog config settings
+
 - name: Create ServiceNow Change Request
   servicenow.itsm.change_request:
     type: normal

@@ -1,4 +1,8 @@
 ---
+- name: Create variable
+  ansible.builtin.set_fact:
+    cr_description: Create new firewall object - {{ object_name | default('') }} with IP {{ object_ip | default('') }}
+
 - name: Create ServiceNow Change Request
   servicenow.itsm.change_request:
     type: normal
