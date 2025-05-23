@@ -1,3 +1,3 @@
 ---
-cr_description: Create new firewall object - {{ object_name | default('') }} with IP {{ object_ip | default('') }} 
+cr_description: SNMP and Syslog config settings
 to_email: "{{ to_emails.split(',') }}"
