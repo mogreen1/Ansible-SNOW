@@ -1,5 +1,5 @@
 ---
-- name: Create variable
+- name: Create SNOW CR description
   ansible.builtin.set_fact:
     cr_description: SNMP and Syslog config settings
 
@@ -7,7 +7,11 @@
   servicenow.itsm.change_request:
     type: normal
     short_description: "{{ cr_description }}"
-    description: "{{ owner | default('Users') }} is attempting update Cisco device configurations."
+    description: |
+      Here are the commands that will be executed
+      
+      {{ snmp_info.commands }}
+      {{ logging_info.commands }}
     priority: high
     risk: moderate
     impact: low
