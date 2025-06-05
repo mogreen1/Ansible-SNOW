@@ -10,8 +10,8 @@
     description: |
       Here are the commands that will be executed
       
-      {{ snmp_info.commands }}
-      {{ logging_info.commands }}
+      {{ snmp_commands }}
+      {{ logging_commands }}
     priority: high
     risk: moderate
     impact: low
